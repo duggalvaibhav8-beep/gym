@@ -1,0 +1,15 @@
+name: Trigger Webhook Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Call webhook
+        run: |
+          curl "http://54.221.29.254:8000/webhook.php?token=mysecret123"
