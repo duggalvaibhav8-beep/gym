@@ -18,4 +18,6 @@ jobs:
 
       - name: Restart PM2 app
         run: |
-          pm2 restart phppro || pm2 start "php -S 0.0.0.0:8000 -t /var/www/html/gym" --name phppro
+              pm2 delete phppro || true
+              pm2 start "php -S 0.0.0.0:8000 -t /var/www/html/gym" --name phppro
+              pm2 save
